@@ -9,19 +9,16 @@ Backend
 
 Customers should be able to freely place tickets in their cart but tickets are not locked until customer is ready to check out.  Tickets are unavailable after a successful purchase.  While such a system could grow to be very complex with dozens of tables, ours should be very simple with perhaps only a ticket and a member table.  For example:
  
--          Ticket: id, section, row, seat#
-
--          Member: id, Name
-
+- Ticket: id, section, row, seat#
+- Member: id, Name
  
 Ultimately, the design is completely up to you.  Your database could be simple lists maintained in memory or something more elaborate like a MySQL database.  Mainly, the system should be capable of dealing with simultaneous access from thousands of customers.  This definitely will require synchronizing access.  I recommend C#’s asych and await keywords.
  
 Please make this a C# DLL project whose interface is a class that allows the following functionality:
--          Create a new set of tickets
 
--          Allow tickets to be locked
-
--          Allow tickets to be purchased (again, simple; no credit card or currency) or unlocked
+- Create a new set of tickets
+- Allow tickets to be locked
+- Allow tickets to be purchased (again, simple; no credit card or currency) or unlocked
 
  
 Testing
