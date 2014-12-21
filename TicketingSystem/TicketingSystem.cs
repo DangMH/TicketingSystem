@@ -1,45 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace TicketingSystem
 {
     public class TicketingSystem
     {
-        private TicketRepository ticketRepository;
+        private TicketRepository ticketRepository = null;
+        private string repositoryFilePath = @"C:\Users\DangMH\documents\visual studio 2015\Projects\TicketingSystem\TicketingSystem\TicketDB.sdf";
+
+        public TicketingSystem()
+        {
+            ticketRepository = new TicketRepository(repositoryFilePath);
+        }
 
         /// <summary>
         /// Creates a ticket with the provided parameters.  Returns the ID of the created ticket.
         /// </summary>
-        public int CreateTicket(int section, int row, int seat)
+        public async Task<bool> CreateTicketAsync(int section, int row, int seat)
         {
-            throw new System.NotImplementedException();
+            return await ticketRepository.CreateTicketAsync(section, row, seat) > 0;
         }
 
         /// <summary>
         /// Holds a ticket for purchase.  Returns true if the ticket is free, else false.
         /// </summary>
-        public async Task<bool> HoldTicket(int ticketID, int memberID)
+        public async Task<bool> HoldTicket(int section, int row, int seat, string memberName)
         {
-            throw new System.NotImplementedException();
+            return await ticketRepository.HoldTicketAsync(section, row, seat, memberName);
         }
 
         /// <summary>
         /// Purcheses and releases a held ticket.  Returns true if the member is holding the ticket for purchase.
         /// </summary>
-        public async Task<bool> PurchaseTicket(string ticketID, string memberID)
+        public async Task<bool> PurchaseTicket(int section, int row, int seat, string memberName)
         {
-            throw new System.NotImplementedException();
+            return await ticketRepository.PurchaseTicketAsync(section, row, seat, memberName);
         }
 
         /// <summary>
         /// Releases a ticket. Returns true if ticket is currently held by the member, else false.
         /// </summary>
-        public async Task<bool> FreeTicket()
+        public async Task<bool> FreeTicket(int section, int row, int seat, string memberName)
         {
-            throw new System.NotImplementedException();
+            return await ticketRepository.FreeTicketAsync(section, row, seat, memberName);
         }
     }
 }
