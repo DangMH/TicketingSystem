@@ -13,11 +13,19 @@ namespace TicketingSystem
         }
 
         /// <summary>
-        /// Creates a ticket with the provided parameters.  Returns the ID of the created ticket.
+        /// Creates a ticket with the provided parameters.  Returns the true if ticket is created successfully, else false.
         /// </summary>
         public async Task<bool> CreateTicketAsync(int section, int row, int seat)
         {
-            return await ticketRepository.CreateTicketAsync(section, row, seat) > 0;
+            return await ticketRepository.CreateTicketAsync(section, row, seat) >= TicketRepository.MINIMUM_ID;
+        }
+
+        /// <summary>
+        /// Creates a member with the provided name.  Returns the true if member is created successfully, else false.
+        /// </summary>
+        public async Task<bool> CreateMemberAsync(string memberName)
+        {
+            return await ticketRepository.CreateMemberAsync(memberName) >= TicketRepository.MINIMUM_ID;
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TicketingSystem.TicketingSystem">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.75" />
     <Members>
       <Method Name="TicketingSystem" Hidden="true" />
     </Members>
@@ -16,7 +16,7 @@
       <Method Name="TicketRepository" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAEAAAoCAAQEAAAAAAAAAhAQAAAAIAQAAAAAQQAAAE=</HashCode>
+      <HashCode>AAAEAAAoCAAQEAAAAAAAAEhAQAAAAIAQAAAAAQQAAAE=</HashCode>
       <FileName>TicketRepository.cs</FileName>
     </TypeIdentifier>
   </Class>

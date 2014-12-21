@@ -14,9 +14,8 @@ namespace TicketingSystem
 
     public class TicketRepository
     {
-        private const int MINIMUM_ID = 1;
-
-        public string connectionFilePath = null;
+        public const int MINIMUM_ID = 1;
+        private string connectionFilePath = null;
 
         private TicketRepository()
         {
@@ -70,6 +69,47 @@ namespace TicketingSystem
             }
 
             return newTicketID;
+        }
+
+        /// <summary>
+        /// Creates a member
+        /// </summary>
+        public async Task<int> CreateMemberAsync(string memberName)
+        {
+            int newMemberID = MINIMUM_ID - 1; // Default settings for PK are (1,1).  ID's < 1 are invalid
+
+            using (SqlCeConnection connection = new SqlCeConnection(connectionFilePath))
+            {
+                await connection.OpenAsync();
+
+                // TODO: Establish unique item
+
+                string query = "INSERT INTO Members(NAME) VALUES('" + memberName + "')";
+
+                SqlCeCommand command = new SqlCeCommand();
+                command.Connection = connection;
+                command.CommandText = query;
+
+                if ((await command.ExecuteNonQueryAsync()) < MINIMUM_ID)
+                {
+                    // Potential to use ID's < 1 as ERROR Codes
+                    newMemberID = -1;
+                }
+                else
+                {
+                    // Get the last created record's PK scoped to the current connection for thread safety
+                    query = "SELECT @@SCOPE_IDENTITY";
+                    command = new SqlCeCommand();
+                    command.Connection = connection;
+                    command.CommandText = query;
+
+                    newMemberID = Convert.ToInt32((decimal)command.ExecuteScalar());
+                }
+
+                connection.Close();
+            }
+
+            return newMemberID;
         }
 
         /// <summary>
