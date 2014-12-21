@@ -2,6 +2,9 @@
 
 namespace TicketingSystem
 {
+    /// <summary>
+    /// Front-facing API for the dll
+    /// </summary>
     public class TicketingSystem
     {
         private const string defaultRepositoryFilePath = @"C:\Users\DangMH\documents\visual studio 2015\Projects\TicketingSystem\TicketingSystem\TicketDB.sdf";

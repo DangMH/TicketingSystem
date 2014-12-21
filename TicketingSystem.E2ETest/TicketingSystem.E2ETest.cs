@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Concurrent;
+using System.Threading;
 using System.Collections.Generic;
 
 namespace TicketingSystem.E2ETest
@@ -7,23 +9,34 @@ namespace TicketingSystem.E2ETest
     {
         public static void Main(string[] args)
         {
-            List<TestMember> memberList = null;
-            List<TestTicket> ticketList = null;
+            RunE2ETest();
 
-            Console.WriteLine("Enter the number of concurrent test members: ");
+            Console.WriteLine("Enter Any Key to Exit");
+            Console.Read();
+        }
+
+        public static void RunE2ETest()
+        {
+            ConcurrentQueue<TestMember> memberList = null;
+            ConcurrentQueue<TestTicket> ticketList = null;
+
+            Console.WriteLine("Enter the number of test threads: ");
+            int numThreads = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter the number of test members: ");
             int numMembers = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Enter the number of test tickets: ");
             int numTickets = Convert.ToInt32(Console.ReadLine());
 
-            memberList = new List<TestMember>(numMembers);
-            ticketList = new List<TestTicket>(numTickets);
+            memberList = new ConcurrentQueue<TestMember>();
+            ticketList = new ConcurrentQueue<TestTicket>();
 
             Console.WriteLine("Member List:");
             for (int i = 0; i < numMembers; ++i)
             {
                 TestMember tempMember = new TestMember();
-                memberList.Add(tempMember);
+                memberList.Enqueue(tempMember);
 
                 Console.WriteLine("\t- " + tempMember.name);
             }
@@ -33,20 +46,27 @@ namespace TicketingSystem.E2ETest
             for (int i = 0; i < numMembers; ++i)
             {
                 TestTicket tempTicket = new TestTicket();
-                ticketList.Add(tempTicket);
+                ticketList.Enqueue(tempTicket);
 
                 Console.WriteLine("\t- " + tempTicket.section + " " + tempTicket.row + " " + tempTicket.seat);
             }
             Console.WriteLine();
 
-            RunTest(memberList, ticketList);
+            TestThread.Init(memberList, ticketList);
 
-            Console.WriteLine("Enter Any Key to Exit");
-            Console.Read();
-        }
+            CountDownLatch latch = new CountDownLatch(numThreads);
+            for (int i = 0; i < numThreads; ++i)
+            {
+                TestThread testThread = new TestThread(i, latch);
 
-        public async static void RunTest(List<TestMember> memberList, List<TestTicket> ticketList)
-        {
+                Thread t = new Thread(new ThreadStart(testThread.ThreadProc));
+
+                Console.WriteLine("Main: created thread " + i);
+                t.Start();
+            }
+
+            Console.WriteLine("Waiting on all threads to return...");
+            latch.Wait();
         }
     }
 }

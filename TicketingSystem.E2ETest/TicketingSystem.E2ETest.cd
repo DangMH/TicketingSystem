@@ -1,31 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TicketingSystem.E2ETest.E2ETest">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>TicketingSystem.E2ETest.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TicketingSystem.E2ETest.TestMember">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="3" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAAAAQAAAAAAMA=</HashCode>
       <FileName>TestMember.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TicketingSystem.E2ETest.TestTicket">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="3" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAAAABAAABAAAICAAAAQAAAAAQAAAAAAAA=</HashCode>
       <FileName>TestTicket.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TicketingSystem.E2ETest.TestThread">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+  <Class Name="TicketingSystem.E2ETest.E2ETest">
+    <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgABAAAAAA=</HashCode>
+      <FileName>TicketingSystem.E2ETest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TicketingSystem.E2ETest.TestThread">
+    <Position X="0.5" Y="2.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="TicketingSystem.E2ETest.TestThread.Activity">
+        <TypeIdentifier>
+          <NewMemberFileName>TicketingSystem.E2ETest.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAACAQAQBBCgAAAAAAAAAgAAAAAAIAAAAACAAAAAEA=</HashCode>
       <FileName>TestThread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TicketingSystem.E2ETest.CountDownLatch">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAARAAAAAAAIAAAAAYAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CountDownLatch.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

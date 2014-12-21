@@ -5,15 +5,18 @@ using System.Threading.Tasks;
 
 namespace TicketingSystem
 {
-    public enum TicketStatus
-    {
-        FREE,
-        HELD,
-        PURCHASED
-    }
-
+    /// <summary>
+    /// Class representing the database file and containsn the interface to interact with the appropriate elements.
+    /// </summary>
     public class TicketRepository
     {
+        private enum TicketStatus
+        {
+            FREE,
+            HELD,
+            PURCHASED
+        }
+
         public const int MINIMUM_ID = 1;
         private string connectionFilePath = null;
 
@@ -175,7 +178,9 @@ namespace TicketingSystem
                 }
 
                 connection.Close();
-            }            return success;
+            }
+
+            return success;
         }
 
         /// <summary>
@@ -410,6 +415,7 @@ namespace TicketingSystem
             if (MINIMUM_ID > (await AddTicketMappingAsync(ticketID, memberID, destTable)))
             {
                 // Add should not have failed.  Something illegal happened.
+                // Possible logic for cleanup here
                 return false;
             }
 

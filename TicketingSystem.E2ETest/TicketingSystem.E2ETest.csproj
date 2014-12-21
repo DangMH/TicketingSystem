@@ -41,10 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountDownLatch.cs" />
     <Compile Include="TestMember.cs" />
-    <Compile Include="TestThread.cs">
-      <SubType>component</SubType>
-    </Compile>
+    <Compile Include="TestThread.cs" />
     <Compile Include="TestTicket.cs" />
     <Compile Include="TicketingSystem.E2ETest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
