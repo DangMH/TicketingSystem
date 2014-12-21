@@ -41,11 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="TestMember.cs" />
+    <Compile Include="TestThread.cs">
+      <SubType>component</SubType>
+    </Compile>
+    <Compile Include="TestTicket.cs" />
+    <Compile Include="TicketingSystem.E2ETest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="TicketingSystem.E2ETest.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicketingSystem\TicketingSystem.csproj">
+      <Project>{704b79aa-f3bb-4217-9d4f-ed174e7d4b4b}</Project>
+      <Name>TicketingSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

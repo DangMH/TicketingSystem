@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TicketingSystem.E2ETest.E2ETest">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>TicketingSystem.E2ETest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TicketingSystem.E2ETest.TestMember">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAAAAQAAAAAAMA=</HashCode>
+      <FileName>TestMember.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TicketingSystem.E2ETest.TestTicket">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAABAAABAAAICAAAAQAAAAAQAAAAAAAA=</HashCode>
+      <FileName>TestTicket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TicketingSystem.E2ETest.TestThread">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestThread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

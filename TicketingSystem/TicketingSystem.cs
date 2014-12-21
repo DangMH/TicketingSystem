@@ -4,10 +4,15 @@ namespace TicketingSystem
 {
     public class TicketingSystem
     {
+        private const string defaultRepositoryFilePath = @"C:\Users\DangMH\documents\visual studio 2015\Projects\TicketingSystem\TicketingSystem\TicketDB.sdf";
         private TicketRepository ticketRepository = null;
-        private string repositoryFilePath = @"C:\Users\DangMH\documents\visual studio 2015\Projects\TicketingSystem\TicketingSystem\TicketDB.sdf";
 
-        public TicketingSystem()
+        public TicketingSystem() : this(defaultRepositoryFilePath)
+        {
+
+        }
+
+        public TicketingSystem(string repositoryFilePath)
         {
             ticketRepository = new TicketRepository(repositoryFilePath);
         }

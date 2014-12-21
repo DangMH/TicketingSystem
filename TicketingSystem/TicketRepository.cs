@@ -197,7 +197,7 @@ namespace TicketingSystem
         /// <summary>
         /// Frees a ticket.  Returns true if the ticket is held by the member, else false.
         /// </summary>
-        public async Task <bool> FreeTicketAsync(int section, int row, int seat, string memberName)
+        public async Task<bool> FreeTicketAsync(int section, int row, int seat, string memberName)
         {
             return await TransferTicketMappingAsync(section, row, seat, memberName, TicketStatus.HELD, TicketStatus.FREE);
         }
@@ -325,7 +325,7 @@ namespace TicketingSystem
 
                 try
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         ticketID = reader.GetInt32(0);
                     }
