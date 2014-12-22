@@ -7,6 +7,9 @@ namespace TicketingSystem.E2ETest
 {
     public class E2ETest
     {
+        /// <summary>
+        /// Runs the program
+        /// </summary>
         public static void Main(string[] args)
         {
             RunE2ETest();
@@ -15,6 +18,9 @@ namespace TicketingSystem.E2ETest
             Console.Read();
         }
 
+        /// <summary>
+        /// Queries the user for inputs on threads, number of members and number of tickets to test against
+        /// </summary>
         public static void RunE2ETest()
         {
             ConcurrentQueue<TestMember> memberList = null;
@@ -43,7 +49,7 @@ namespace TicketingSystem.E2ETest
             Console.WriteLine();
 
             Console.WriteLine("Ticket List:");
-            for (int i = 0; i < numMembers; ++i)
+            for (int i = 0; i < numTickets; ++i)
             {
                 TestTicket tempTicket = new TestTicket();
                 ticketList.Enqueue(tempTicket);

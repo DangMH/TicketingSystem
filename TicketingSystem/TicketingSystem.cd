@@ -6,7 +6,7 @@
       <Method Name="TicketingSystem" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAQAAIAAAAg=</HashCode>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAQCAIAAAAg=</HashCode>
       <FileName>TicketingSystem.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -26,7 +26,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAEAAAoCAAQEAAAAAAAAEhAQAAAAIAQAAAAAQQAAAE=</HashCode>
+      <HashCode>AAAEAQAoCAAQEAAAAAAAAEhAQAAAAIAQAAAAAQQAAAE=</HashCode>
       <FileName>TicketRepository.cs</FileName>
     </TypeIdentifier>
   </Class>

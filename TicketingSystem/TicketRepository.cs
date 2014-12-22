@@ -27,7 +27,33 @@ namespace TicketingSystem
 
         public TicketRepository(string filePath)
         {
-            connectionFilePath = filePath;
+            connectionFilePath = @"DataSource=" + filePath;
+        }
+
+        /// <summary>
+        /// Drops all entries from each table
+        /// </summary>
+        public void InitTables()
+        {
+            using (SqlCeConnection connection = new SqlCeConnection(connectionFilePath))
+            {
+                connection.Open();
+
+                string[] tables = { "Tickets", "Members", "TicketsFree", "TicketsHeld", "TicketsPurchased" };
+
+                string query = "DELETE FROM ";
+
+                foreach (string tableName in tables)
+                {
+                    SqlCeCommand command = new SqlCeCommand();
+                    command.Connection = connection;
+                    command.CommandText = query + tableName;
+
+                    command.ExecuteNonQuery();
+                }
+
+                connection.Close();
+            }
         }
 
         /// <summary>
@@ -43,9 +69,9 @@ namespace TicketingSystem
 
                 // TODO: Establish unique item
 
-                string query = "INSERT INTO Tickets(SECTION, ROW, SEAT) VALUES("
-                    + section + ","
-                    + row + ","
+                string query = "INSERT INTO Tickets(T_SECTION,T_ROW,T_SEAT) VALUES("
+                    + section + ", "
+                    + row + ", "
                     + seat + ")";
 
                 SqlCeCommand command = new SqlCeCommand();
@@ -60,7 +86,7 @@ namespace TicketingSystem
                 else
                 {
                     // Get the last created record's PK scoped to the current connection for thread safety
-                    query = "SELECT @@SCOPE_IDENTITY";
+                    query = "SELECT @@IDENTITY";
                     command = new SqlCeCommand();
                     command.Connection = connection;
                     command.CommandText = query;
@@ -69,6 +95,12 @@ namespace TicketingSystem
                 }
 
                 connection.Close();
+            }
+
+            if ((await AddTicketMappingAsync(newTicketID, MINIMUM_ID, TicketStatus.FREE)) < MINIMUM_ID)
+            {
+                // Something Illegal happened
+                return newTicketID;
             }
 
             return newTicketID;
@@ -101,7 +133,7 @@ namespace TicketingSystem
                 else
                 {
                     // Get the last created record's PK scoped to the current connection for thread safety
-                    query = "SELECT @@SCOPE_IDENTITY";
+                    query = "SELECT @@IDENTITY";
                     command = new SqlCeCommand();
                     command.Connection = connection;
                     command.CommandText = query;
@@ -142,7 +174,7 @@ namespace TicketingSystem
                 else
                 {
                     // Get the last created record's PK scoped to the current connection for thread safety
-                    query = "SELECT @@SCOPE_IDENTITY";
+                    query = "SELECT @@IDENTITY";
                     command = new SqlCeCommand();
                     command.Connection = connection;
                     command.CommandText = query;
@@ -318,9 +350,9 @@ namespace TicketingSystem
 
                 // TODO: Establish unique item
 
-                string query = "SELECT ID FROM Tickets WHERE SECTION=" + section
-                    + " AND ROW=" + row
-                    + " AND SEAT=" + seat;
+                string query = "SELECT ID FROM Tickets WHERE T_SECTION=" + section
+                    + " AND T_ROW=" + row
+                    + " AND T_SEAT=" + seat;
 
                 SqlCeCommand command = new SqlCeCommand();
                 command.Connection = connection;

@@ -21,6 +21,14 @@ namespace TicketingSystem
         }
 
         /// <summary>
+        /// Initializes the repository
+        /// </summary>
+        public void Init()
+        {
+            ticketRepository.InitTables();
+        }
+
+        /// <summary>
         /// Creates a ticket with the provided parameters.  Returns the true if ticket is created successfully, else false.
         /// </summary>
         public async Task<bool> CreateTicketAsync(int section, int row, int seat)
