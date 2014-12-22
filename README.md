@@ -27,3 +27,10 @@ Testing
 The second project needs to simulate real-life use.  It will obtain an interface from the backend DLL and use it hammer the backend.
  
 This project should be a C# application.  No UI is necessary.
+
+Solution
+==
+
+Backend
+--
+
