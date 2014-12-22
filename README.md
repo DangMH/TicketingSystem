@@ -80,7 +80,7 @@ track the current state of each ticket.
 
 Tickets can only migrate in the following fashion:
 
-    TicketsFree <> TicketsHeld <> TicketsPurchased
+    TicketsFree <> TicketsHeld > TicketsPurchased
 
 Where the only the appropriate member mapped to the ticket can initiate the migrations. Migrations 
 first attempt to remove the record from the source table, and then only add the record to the 
