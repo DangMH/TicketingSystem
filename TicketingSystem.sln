@@ -8,8 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{05557D5E-06A0-4F6D-BA25-538C5F51472D}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		TicketingSystem.E2ETest.JPG = TicketingSystem.E2ETest.JPG
-		TicketingSystem.jpg = TicketingSystem.jpg
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingSystem.E2ETest", "TicketingSystem.E2ETest\TicketingSystem.E2ETest.csproj", "{394B0AB8-878A-4640-BD62-014188BF572F}"
